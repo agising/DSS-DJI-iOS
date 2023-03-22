@@ -1,23 +1,33 @@
 # DSS-DJI-iOS
-The RISE DSS for DJI on iOS
+This is the DJI iOS implementation of the DSS. It comes as is, we wish it was in a more general state, but currently it is working fine for our purposes.
+Using this app, you can write an other application that sends commands to this app that will routes them further to the DJI drone. Refer to the main repo https://github.com/RISE-drones/rise_drones
+
+# Legal
+If uploadng any code to apple servers, the DJI-SDK is in one way or the other included. When downloading your code from apple servers the code is technically exported from USA and there might be export restrictions due to encryption technologies included. We cannot give any legal advise in this matter, it is on your own responsibility to resarch the legal aspects of dealing and handligth this software.  
+
+
+# Future work
+There is a default viewcontroller from DJI that pretty much gives the base functionality of the standard app, with menus ans such. It was once implemented, but removed because downloading photos took for ever since the camera could not be stopped during the process. However, new versions of the DJI SDK does not allow to to stop the camera as before and we are back to slow download speeds..
+
+Also, implementing the same functionality for Android is higly wanted to be able to run the software on DJI handcontrollers with integrated screens.
 
 # Installation
-Frameworks are installed using cocoapods.
+This installation description is not complete. Please contribute whith how you install it. Also, updates in XCODE will outdate instructions.
+
+## Frameworks are installed using cocoapods.
 Mid 2021 there are some issues related to the Apple M1 chip. This worked for me:
-    
+
     sude gem uninstall cocoapods
     brew install cocoapods
     pod setup
-From the DSS-folder, install the pods
-    
+From the DSS-folder, install the pods    
     pod install
 
 Somewhere in the process pod install complained about xcode command line tools, I then relinked to the application it self with the command below. It is possible that brew does that automagically.
     
     sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-
-# Create a secrets file and put bundle id and developer team there.
+## Create a secrets file and put bundle id and developer team there.
 In XCODE, at the top level in the file tree, right click DSS and add file, choose config file. Add the following keys in the end:
 PRODUCT_BUNDLE_IDENTIFIER = com.your_bundle.id
 DEVELOPMENT_TEAM = dev_team_as_a_code
