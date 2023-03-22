@@ -52,7 +52,7 @@
 		97655EFE2639A2E6002538E8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		97655F012639A304002538E8 /* Retry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retry.swift; sourceTree = "<group>"; };
 		97655F042639A327002538E8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		97A0834429CAFB4B0057EBA4 /* Secret_config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret_config.xcconfig; sourceTree = "<group>"; };
+		978B474229CB142900E2C7A6 /* Secret_config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret_config.xcconfig; sourceTree = "<group>"; };
 		97B40AA82629769A000DC23D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		97B40AAB262976C1000DC23D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		97B40AAE262976E3000DC23D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		97C2842526286D750003899D = {
 			isa = PBXGroup;
 			children = (
-				97A0834429CAFB4B0057EBA4 /* Secret_config.xcconfig */,
+				978B474229CB142900E2C7A6 /* Secret_config.xcconfig */,
 				97C2844F26286F920003899D /* ProductCommunicaiton */,
 				97C2843026286D750003899D /* DSS */,
 				97C2842F26286D750003899D /* Products */,
@@ -367,7 +367,7 @@
 /* Begin XCBuildConfiguration section */
 		97C2844026286D790003899D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97A0834429CAFB4B0057EBA4 /* Secret_config.xcconfig */;
+			baseConfigurationReference = 978B474229CB142900E2C7A6 /* Secret_config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -429,7 +429,7 @@
 		};
 		97C2844126286D790003899D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97A0834429CAFB4B0057EBA4 /* Secret_config.xcconfig */;
+			baseConfigurationReference = 978B474229CB142900E2C7A6 /* Secret_config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
