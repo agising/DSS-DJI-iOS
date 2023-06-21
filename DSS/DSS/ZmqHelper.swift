@@ -88,7 +88,7 @@ class Requestor: NSObject {
     var ip = ""                                     // The ip
     var port = 0                                    // The port
     var id = ""                                     // The id to use when sending requests
-    let recvTimeout: Int32 = 1000                   // Receive timeout ms.
+    let recvTimeout: Int32 = 2000                   // Receive timeout ms.
     var lastBeatSent = CACurrentMediaTime()         // Track sent messages
     var requestEnable = false                       // A flag to help stopping heartBeat thread.
     var allocator: Allocator?                       // An allocator since socket is not thread safe and messages will be triggered from user and heartbeat.

@@ -1662,7 +1662,7 @@ public class DSSViewController: UIViewController, Storyboarded {
                             else{
                                 json_r = createJsonNack(fcn: "photo", description: "Allocator1 denied, report")
                                 print("DEBUG: Allocator1 denied")
-                                self.log("Allocator1 denied, report")
+                                self.log("Allocator1 denied, report this")
                             }
                         case "continous_photo":
                             self.log("Cmd: photo, with arg continous_photo")
