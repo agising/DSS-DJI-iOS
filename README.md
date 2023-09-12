@@ -3,7 +3,7 @@ This is the DJI iOS implementation of the DSS. It comes as is, we wish it was in
 Using this app, you can write an other application that sends commands to this app that will routes them further to the DJI drone. Refer to the main repo https://github.com/RISE-drones/rise_drones
 
 # Legal
-If uploadng any code to apple servers, the DJI-SDK is in one way or the other included. When downloading your code from apple servers the code is technically exported from USA and there might be export restrictions due to encryption technologies included. We cannot give any legal advise in this matter, it is on your own responsibility to resarch the legal aspects of dealing and handligth this software.
+If uploading any code to apple servers, the DJI-SDK is in one way or the other included. When downloading your code from apple servers the code is technically exported from USA and there might be export restrictions due to encryption technologies included. We cannot give any legal advise in this matter, it is on your own responsibility to resarch the legal aspects of dealing and handligth this software.
 
 
 # Future work
