@@ -2589,8 +2589,10 @@ public class DSSViewController: UIViewController, Storyboarded {
         // Prevent display from dimming. Will cause battery drain, but flight control is lost if display is dimmed..
         UIApplication.shared.isIdleTimerDisabled = true
         
+        // Dev interfaces. Sometines extra buttons or steppers comes handy when developing. Here are some already defined steppers and buttons that can be used for what ever. Just connect them to some paramter and set the isHidden property to false. The steppers have settings in the graphical layout interface (Main). Right click a stepper object and fiddle with its properties for max min etc.
+        
         // Init steppers (for controller tuning for example
-        leftStepperStackView.isHidden = false
+        leftStepperStackView.isHidden = true
         leftStepperStackView.backgroundColor = UIColor.lightGray
         leftStepperButton.value = copter.kP*100
         leftStepperLabel.text = String(copter.kP)
@@ -2602,20 +2604,17 @@ public class DSSViewController: UIViewController, Storyboarded {
 //        rightStepperLabel.text = "5000"
 //        rightStepperName.text = "rNE"
 
-        rightStepperStackView.isHidden = false
+        rightStepperStackView.isHidden = true
         rightStepperStackView.backgroundColor = UIColor.lightGray
         rightStepperButton.value = 0 // Set same as filterAcc rNE/100
         rightStepperLabel.text = "0"
         rightStepperName.text = "North"
 
-        extraStepperStackView.isHidden = false
+        extraStepperStackView.isHidden = true
         extraStepperStackView.backgroundColor = UIColor.lightGray
         extraStepperButton.value = copter.kFF*100
         extraStepperLabel.text = String(copter.kFF)
         extraStepperName.text = "kFF"
-        
-        
-        
         
         
         // Set up layout
@@ -2631,7 +2630,7 @@ public class DSSViewController: UIViewController, Storyboarded {
         DuttLeftButton.layer.cornerRadius = radius
         DuttRightButton.layer.cornerRadius = radius
         
-        // Disable some buttons
+        // Disable some buttons. Enable and set up their functions per your need.
         disableButton(DuttLeftButton)
         disableButton(DuttRightButton)
         DuttLeftButton.isHidden = true
@@ -2654,14 +2653,6 @@ public class DSSViewController: UIViewController, Storyboarded {
         lockedButtonTicker = lockedButtonsList.count
         unlockSpecialButtons()
         hideSpecialButtons(hide: true)
-        
-        
-        // Hide some buttons. TODO remove of not used..
-        //        takePhotoButton.isHidden = true
-        //        previewButton.isHidden = true
-        //        savePhotoButton.isHidden = true
-        //        getDataButton.isHidden = true
-        //        putDataButton.isHidden = true
         
         log("Setting up aircraft")
         
