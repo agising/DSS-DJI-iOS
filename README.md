@@ -15,49 +15,64 @@ Also, implementing the same functionality for Android is higly wanted to be able
 This installation description is not complete. Please contribute whith how you install it. Also, updates in XCODE will outdate instructions.
 
 ## Frameworks are installed using cocoapods.
-Mid 2021 there are some issues related to the Apple M1 chip. This worked for me:
-
-    sudo gem uninstall cocoapods
+The proejct utilizes cocoapds to install dependencies, first install cocoapods:
     brew install cocoapods
     pod setup
-From the DSS-folder, install the pods
+Quit Xcode, then install the pods. Browse to the DSS-folder and install the pods that are defined in the Podfile:
+    cd DSS-DJI-IOS/DSS/
     pod install
 
-Somewhere in the process pod install complained about xcode command line tools, I then relinked to the application it self with the command below. It is possible that brew does that automagically.
+You might get warnings aboout xcode command line tools. you can try to relink xcode to it self using the following command.
 
     sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-## Create a secrets file and put bundle id and developer team there.
-In XCODE, at the top level in the file tree, right click DSS and add file, choose Configurations Settings file. Add the following keys in the end:
-PRODUCT_BUNDLE_IDENTIFIER = com.your_bundle.id
-DEVELOPMENT_TEAM = dev_team_as_a_code
+From here on it is important that ou start Xcode using the newly created DSS.xcworkspace. Do not use the .xcodeproj
 
-Now, make the project read from this secret file:
 
-Now select DSS, highlight DSS under Project.
-Under configurations, expand debug, select DSS project (first level).
-Add Secret_config
-Under configurations, expand release, select DSS project (first level).
-Add Secret_config
+## Secret information
+You need some private keys (secrets) in order to compile the code and make it conenct to a drone. These secrets must be outside the git-control for safety reasons. Therefor we do not add this kind of info directly inte the info.plist file, instead we reference to two secret files as described in the following sections.
 
-To clear out any already save secret info, make xcode get the info from the config file.
+## Create a Secret_config file and put apple bundle id and developer team there.
+In XCODE, at the top level in the file tree, right click DSS and select new file, choose Configurations Settings file and name it Secrets_config (xcode will add the correct file ending).
+Add the following keys in the end:
 
-Update already stored values of secret info:
-Now select DSS, highlight DSS under Project.
-Select tab build settings, highlight All and Levels.
-Search for bundle_id.
-Under Packaging, select Product Bundle Identifier and press Delete. Xcode will read from the config file and under resolved it will show what you entered in the secrets file.
-Search for development_team
-Under signing, select Development team and press Delete. Xcode will read from the config file and under resolved it will show what tou entered in the secrets file.
+    PRODUCT_BUNDLE_IDENTIFIER = com.your_bundle.id
+    DEVELOPMENT_TEAM = dev_team_as_a_code
 
-Highlight DSS under Target.
-Select tab build settings, hightlihgt All and Levels, serach for bundle_id.
-Under Packaging, select Product Bundle Identifier. Xcode will read from the config file and under resolved it will show what you entered in the secrets file.
-Search for development_team
-Under signing, select Development team and press Delete. Xcode will read from the config file and under resolved it will show what tou entered in the secrets file.
+Now, make the project read from this secret file by following these steps
 
-## Create secret file for DJI key
-Copy the Secrets-Sample file to Secrets. Add you DJI key here. The creation of this file was supposed to happen automatically in the build phase..
+- Select DSS in Project navigator (top left), in project and targets list, highlight DSS under Project. Tab Info
+    - Under Title Configurations:
+      - Expand debug, select DSS project (first level).
+      - Select Secret_config
+      - Expand release
+      - Select DSS project (first level).
+      - Add Secret_config
+
+## Create Secrets.h and put your DJI bundle id here 
+In Xcode, in the file tree (project navigator), goto DSS/DSS. The reference Secrets is marked red because the Secret file is missing. Copy the Secrets-Sample file to Secrets. Add you DJI key here. The creation of this file was supposed to happen automatically in the build phase, but it does not seem to work. (You can also remove the red reference and rename the Secrets-Sample to Secrets (.h).)
+Add you DJI app key in the file Secrets.h.
+
+\#define SECRET_DJISDKKEY    c0asdfasdfasdfasdfasdfqwert
+
+
+## Compile
+Try to compile to a phone connected via cable. If there are complaints about secret info like bundle id and such, follow the below steps.
+
+- Select DSS in Project navigator (top left), in project and targets list, highlight DSS under Project.
+  - Select tab build settings, highlight All and Levels.
+  - Search for bundle_id.
+  - Under Packaging, select Product Bundle Identifier and press Delete. Xcode will read from the config file and under resolved it will show what you entered in the secrets file.
+
+  - Search for development_team
+  - Under signing, select Development team and press Delete. Xcode will read from the config file and under resolved it will show what tou entered in the secrets file.
+
+- Select DSS in Project navigator (top left), in project and targets list, highlight DSS under Target.
+  - Select tab build settings, hightlihgt All and Levels, serach for bundle_id.
+  - Under Packaging, select Product Bundle Identifier. Xcode will read from the config file and under resolved it will show the apple bundle id tou entered in the Secret_config filewhat you entered in the secrets file.
+  - Search for development_team
+  - Under signing, select Development team and press Delete. Xcode will read from the config file and under resolved it will show what tou entered in the secrets file.
+
 
 # Contributing
 If you would want to contribute to RISE drone system please take a look at [the guide for contributing](contributing.md) to find out more about the guidelines on how to proceed.
